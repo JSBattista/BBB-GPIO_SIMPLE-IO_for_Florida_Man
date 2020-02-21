@@ -19,16 +19,27 @@ For example, GPIO 1_12 in the code is recognized as (1<<12) on declaration. But 
 The sample shows an input, and an output. One of the most important lines of the code is the mmap command. Make sure your selected GPIO is represented by the proper base. So
 
 #define USR__IN (1<<12)  // Actual GPIO Name and function in Mode 7. BBB Pin 8_12
+
 #define USR__OUT (1<<13) // BBB pin 8_13
+
 means we are using
+
 gpio_map = (char *)mmap((U+000A) 
+
             0,
+            
             GPIO_SIZE,
+            
             PROT_READ|PROT_WRITE,
+            
             MAP_SHARED,
+
             mem_fd,
+
             BASEADDR_GPIO1     //  don't drop the base - needs to change depending on what GPIO pin is in use
+
     );
+
 If we were using 
 
 #define USR__IN1 (2<<1)  // GPIOX<<Y where X is bank and y is number of that bank in Mode 7
