@@ -13,7 +13,7 @@
 #define BASEADDR_GPIO1 0x4804C000
 #define BASEADDR_GPIO2 0x481AC000
 #define BASEADDR_GPIO3 0x481AE000  
-#define GPIO_SIZE  0x00000FFF      // decimal 4,095‬  This is the size of each register ie start 0x4804_C000 end 0x4804_CFFF 4KB
+#define GPIO_SIZE  0x00000FFF      
 #define GPIO_OE 0x14d
 #define GPIO_IN 0x14e
 #define GPIO_OUT 0x14f
