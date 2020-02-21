@@ -27,4 +27,4 @@ If we were using
 #define USR__IN2 (2<<4)
 Then we would use 
   BASEADDR_GPIO2
-You will also notice that I have a lot of unused addresses in the code. This is for reference. 
+You will also notice that I have a lot of unused addresses in the code. This is for reference to help get used to the idea that when dealing with memory maps, it's a world of addresses... and segfaults. 
