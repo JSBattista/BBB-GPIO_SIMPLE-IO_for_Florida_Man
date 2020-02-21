@@ -10,3 +10,21 @@ The other part comes from a nice C++ demo. I use none of that here, but the way 
 And yes, memory map. We're going to use the big tools and go fast and lean with memory map. The result is some rather short code that does one thing. I include other files demonstrating inputs on other banks of GPIO pins - there are 4 of them BTW. Some more useful than others. 
 Another reference: See Molloy's charts. They are everywhere so I won't link them here. They show you what pin number correlates to what GPIO number to what bank ID. It's not as confusing as you think.
 For example, GPIO 1_12 in the code is recognized as (1<<12) on declaration. But we have to shift right that same designation on input. Don't forget that. The code attempt is as short and simple as possible but for more robust and readable code I would hold data in a structure to keep the concepts together. If you change the GPIO bank/pin of the input you still have to shift right the actual input to get that 1 or 0 you need. It will be obious in the code. 
+The sample shows an input, and an output. One of the most important lines of the code is the mmap command. Make sure your selected GPIO is represented by the proper base. So
+#define USR__IN (1<<12)  // Actual GPIO Name and function in Mode 7. BBB Pin 8_12
+#define USR__OUT (1<<13) // BBB pin 8_13
+means we are using
+gpio_map = (char *)mmap(
+            0,
+            GPIO_SIZE,
+            PROT_READ|PROT_WRITE,
+            MAP_SHARED,
+            mem_fd,
+            BASEADDR_GPIO1     //  don't drop the base - needs to change depending on what GPIO pin is in use
+    );
+If we were using 
+#define USR__IN1 (2<<1)  // GPIOX<<Y where X is bank and y is number of that bank in Mode 7
+#define USR__IN2 (2<<4)
+Then we would use 
+  BASEADDR_GPIO2
+You will also notice that I have a lot of unused addresses in the code. This is for reference. 
