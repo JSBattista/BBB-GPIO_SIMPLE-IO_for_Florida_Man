@@ -1,5 +1,5 @@
 # BBB-GPIO_SIMPLE-IO_for_Florida_Man
-GPIO in and out sample so simple even Florida Man can do it.
+-GPIO in and out sample so simple even Florida Man can do it.
 
 There are times when you need a simple solution and don't have time for anything else. And if this is one of them, then you don't even need to be from Florida. 
 Generally, the situation of "I have a GPIO pin I want to put something into, and another I want to get something out of" is often muddled with the usual inclusion of DTS and DTB and overlays and flat files and modes and pinmux and all that other sort of stuff that gets between us and the in-out solution like a level boss gets in the way of the treasure. 
