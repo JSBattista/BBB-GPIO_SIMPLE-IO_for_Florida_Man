@@ -10,7 +10,7 @@ Note the output sample with memory map. That's nice for flashing the LEDs. But I
 
 The other part comes from a nice C++ demo. I use none of that here, but the way that code sample works shows some good memory mapping "tactics" that helped me around the sample I wanted to create.  Find it here at https://github.com/facine/easyBlack At its core, it's using memory mapped access and shows some of the relationships around addresses, offsets, and the like. 
 
-And yes, memory map. We're going to use the big tools and go fast and lean with memory map. The result is some rather short code that does one thing. I include other files demonstrating inputs on other banks of GPIO pins - there are 4 of them BTW. Some more useful than others. 
+And yes, memory map. We're going to use the big tools and go fast and lean with memory map. The result is some rather short code that does one thing.
 
 Another reference: See Molloy's charts. They are everywhere so I won't link them here. They show you what pin number correlates to what GPIO number to what bank ID. It's not as confusing as you think.
 
@@ -40,3 +40,4 @@ Then we would use
   
 You will also notice that I have a lot of unused addresses in the code. This is for reference to help get used to the idea that when dealing with memory maps, it's a world of addresses... and segfaults.  This is also important to keep in mind when designating pins for input and output. When using mmap and this means, you are so fully in control, you can shoot yourself in the foot 1000 more ways. It's the cost of speed. 
 The Demo code takes an input from a cheap flame sensor on one GPIO pin, and then outputs a square wave on another. The square wave is not representative of any real data. 
+As always, things will act different when you move them around, so be ready to hack at it to get it working. 
