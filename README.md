@@ -52,14 +52,13 @@ means we are using
 
 If we were using 
 
-#define USR__IN1 (2<<1)  // GPIOX<<Y where X is bank and y is number of that bank in Mode 7
-
-#define USR__IN2 (2<<4)
+            #define USR__IN1 (2<<1)  // GPIOX<<Y where X is bank and y is number of that bank in Mode 7
+            #define USR__IN2 (2<<4)
 
 Then we would use 
 
 
-  BASEADDR_GPIO2
+             BASEADDR_GPIO2
 
 
 You will also notice that I have a lot of unused addresses in the code. This is for reference to help get used to the idea that when dealing with memory maps, it's a world of addresses... and segfaults.  This is also important to keep in mind when designating pins for input and output. When using mmap and this means, you are so fully in control, you can shoot yourself in the foot 1000 more ways. It's the cost of speed. 
