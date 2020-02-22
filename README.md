@@ -34,21 +34,21 @@ The sample shows an input, and an output. One of the most important lines of the
 means we are using
 
 
-gpio_map = (char *)mmap((U+000A) 
+            gpio_map = (char *)mmap((U+000A) 
 
-            0,
+                        0,
             
-            GPIO_SIZE,
+                        GPIO_SIZE,
             
-            PROT_READ|PROT_WRITE,
+                        PROT_READ|PROT_WRITE,
             
-            MAP_SHARED,
+                        MAP_SHARED,
 
-            mem_fd,
+                        mem_fd,
 
-            BASEADDR_GPIO1     //  don't drop the base - needs to change depending on what GPIO pin is in use
+                        BASEADDR_GPIO1     //  don't drop the base - needs to change depending on what GPIO pin is in use
 
-    );
+            );
 
 If we were using 
 
