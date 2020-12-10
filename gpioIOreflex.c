@@ -58,6 +58,7 @@ int main(int argc, char **argv) {
     while (1) {  // *** infinite loop will have to CTRL-C out of this
 	if(((*(gpio + GPIO_IN) & USR__IN) &  (1 << 12)) >> 12) {     // Note the shifting out of registers here for input and the relation to this being gpio 1_12
 		for (int incr = 0; incr < 100; incr++) {  // Do a square wave for a while
+			// Additional notes: see https://youtu.be/ZLyesUiXde4?t=480 Maybe use XOR to toggle, or |= &= ... should experiment. 
 	        	*(gpio + GPIO_OUT) = *(gpio + GPIO_OUT) | USR__OUT;  // Set output of GPIO high
 			usleep(10000);
         		*(gpio + GPIO_OUT) = *(gpio + GPIO_OUT) & (~USR__OUT); // Set output of GPIO low
